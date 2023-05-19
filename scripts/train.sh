@@ -12,8 +12,8 @@ dset_name=$1  # [anet, yc2]
 model_type=$2  # [mart, xl, xlrg, mtrans, mart_no_recurrence]
 
 data_dir="./densevid_eval/${dset_name}_data"
-v_feat_dir="./video_feature/${dset_name}_trainval"
-dur_file="./video_feature/${dset_name}_duration_frame.csv"
+v_feat_dir="./video_feature/rt_${dset_name}_feat/trainval"
+dur_file="./video_feature/rt_${dset_name}_feat/${dset_name}_duration_frame.csv"
 word2idx_path="./cache/${dset_name}_word2idx.json"
 glove_path="./cache/${dset_name}_vocab_glove.pt"
 

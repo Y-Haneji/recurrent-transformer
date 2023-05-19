@@ -18,7 +18,7 @@ fi
 
 # download and extract http://nlp.stanford.edu/data/glove.6B.zip,
 # modify glove_path to your downloaded glove path
-glove_path="path/to/glove.6B.300d.txt"
+glove_path="./glove.6B/glove.6B.300d.txt"
 
 python src/build_vocab.py \
 --train_path ${train_path} \

@@ -248,6 +248,7 @@ def eval_language_metrics(checkpoint, eval_data_loader, opt, model=None, eval_mo
 
     # COCO language evaluation
     eval_references = reference_files_map[eval_mode]
+    eval_references = list(map(os.path.abspath, eval_references))
     lang_filepath = res_filepath.replace(".json", "_lang.json")
     eval_cmd = ["python", "para-evaluate.py", "-s", res_filepath, "-o", lang_filepath,
                 "-v", "-r"] + eval_references
@@ -576,6 +577,7 @@ def main():
     print(json.dumps(vars(opt), indent=4, sort_keys=True))
 
     device = torch.device("cuda" if opt.cuda else "cpu")
+    print(f"device: {device}")
     rt_config = EDict(
         xl_grad=opt.xl_grad,  # enable back-propagation for transformerXL model
         hidden_size=opt.hidden_size,

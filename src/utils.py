@@ -1,12 +1,19 @@
 import json
 
 
+def json_serializer(obj):
+    if isinstance(obj, bytes):
+        return obj.decode('utf-8')
+
+    return obj
+
+
 def save_json(data, filename, save_pretty=False, sort_keys=False):
     with open(filename, "w") as f:
         if save_pretty:
-            f.write(json.dumps(data, indent=4, sort_keys=sort_keys))
+            f.write(json.dumps(data, indent=4, sort_keys=sort_keys, default=json_serializer))
         else:
-            json.dump(data, f)
+            json.dump(data, f, default=json_serializer)
 
 
 def save_parsed_args_to_json(parsed_args, file_path, pretty=True):
