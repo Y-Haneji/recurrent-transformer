@@ -9,6 +9,8 @@ cache/*
 tmp*.py
 *pickle
 video_feature*
+glove.*
+env/
 
 # compiled files #
 *.pyc
